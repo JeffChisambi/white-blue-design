@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Logo } from "@/components/Logo";
 import ogulaLogo from "@/assets/ogulalogo.svg.asset.json";
-import { motion, type Variants } from "motion/react";
-import type { ReactNode } from "react";
+import { motion, AnimatePresence, type Variants } from "motion/react";
+import { useState, useEffect, type ReactNode } from "react";
+import { Menu, X } from "lucide-react";
+
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
