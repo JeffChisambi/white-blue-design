@@ -9,8 +9,8 @@ import { Menu, X } from "lucide-react";
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
 const revealVariants: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeOut } },
+  hidden: { opacity: 0, y: 14 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: easeOut } },
 };
 
 function Reveal({
@@ -97,34 +97,34 @@ function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
 
-      {/* premium ambient gradients */}
+      {/* premium ambient gradients — hero only */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[900px] overflow-hidden">
         <div
-          className="absolute left-1/2 top-[-280px] h-[760px] w-[1100px] -translate-x-1/2 rounded-full blur-3xl opacity-70"
+          className="absolute left-1/2 top-[-280px] h-[760px] w-[1100px] -translate-x-1/2 rounded-full blur-2xl opacity-60"
           style={{
             background:
-              "radial-gradient(closest-side, rgba(82,205,239,0.28), rgba(82,205,239,0.08) 55%, transparent 75%)",
+              "radial-gradient(closest-side, rgba(82,205,239,0.22), rgba(82,205,239,0.06) 55%, transparent 75%)",
           }}
         />
         <div
-          className="absolute left-[8%] top-[180px] h-[420px] w-[420px] rounded-full blur-3xl opacity-60"
+          className="absolute left-[8%] top-[180px] h-[380px] w-[380px] rounded-full blur-2xl opacity-50"
           style={{
             background:
-              "radial-gradient(closest-side, rgba(82,205,239,0.22), transparent 70%)",
+              "radial-gradient(closest-side, rgba(82,205,239,0.18), transparent 70%)",
           }}
         />
         <div
-          className="absolute right-[6%] top-[120px] h-[460px] w-[460px] rounded-full blur-3xl opacity-50"
+          className="absolute right-[6%] top-[120px] h-[400px] w-[400px] rounded-full blur-2xl opacity-40"
           style={{
             background:
-              "radial-gradient(closest-side, rgba(120,170,255,0.20), transparent 70%)",
+              "radial-gradient(closest-side, rgba(120,170,255,0.16), transparent 70%)",
           }}
         />
       </div>
 
-      {/* faded dot grid */}
+      {/* faded dot grid — hero section only */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[900px]"
         style={{
           backgroundImage:
             "radial-gradient(rgba(10,10,10,0.18) 1px, transparent 1px)",
@@ -136,7 +136,7 @@ function Index() {
         }}
       />
 
-      {/* soft top vignette to fade dots into white */}
+      {/* soft top vignette to fade dots into background */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background to-transparent" />
 
       {/* Nav */}
@@ -268,10 +268,10 @@ function Index() {
           animate="show"
           variants={{
             hidden: {},
-            show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+            show: { transition: { staggerChildren: 0.08, delayChildren: 0 } },
           }}
         >
-          <motion.div variants={revealVariants} className="inline-block px-5 py-2 rounded-full border border-border bg-card/70 text-sm backdrop-blur shadow-sm">
+          <motion.div variants={revealVariants} className="inline-block px-5 py-2 rounded-full border border-border bg-card text-sm shadow-sm">
             <span className="inline-block w-1.5 h-1.5 rounded-full mr-2 align-middle" style={{ backgroundColor: blue, boxShadow: `0 0 12px ${blue}` }} />
             Smart Client & Hosting Management Platform
           </motion.div>
