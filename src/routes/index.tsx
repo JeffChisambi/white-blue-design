@@ -386,7 +386,14 @@ function Index() {
       </main>
 
       {/* Features */}
-      <div className="w-full bg-zinc-950">
+      <div
+        className="w-full bg-zinc-950 relative z-[1] pt-20 pb-20"
+        style={{
+          clipPath: "polygon(0 80px, 100% 0, 100% calc(100% - 80px), 0 100%)",
+          marginTop: "-80px",
+          marginBottom: "-80px",
+        }}
+      >
         <section id="features" className="relative z-10 max-w-6xl mx-auto px-6 py-32 text-white">
           <Reveal className="text-center max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
@@ -437,7 +444,14 @@ function Index() {
       </section>
 
       {/* Benefits */}
-      <div className="w-full bg-zinc-950">
+      <div
+        className="w-full bg-zinc-950 relative z-[1] pt-20 pb-20"
+        style={{
+          clipPath: "polygon(0 80px, 100% 0, 100% calc(100% - 80px), 0 100%)",
+          marginTop: "-80px",
+          marginBottom: "-80px",
+        }}
+      >
         <section className="relative z-10 max-w-6xl mx-auto px-6 py-32 text-white">
           <Reveal className="text-center max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
@@ -502,7 +516,14 @@ function Index() {
       </section>
 
       {/* Roles */}
-      <div className="w-full bg-zinc-950">
+      <div
+        className="w-full bg-zinc-950 relative z-[1] pt-20 pb-20"
+        style={{
+          clipPath: "polygon(0 80px, 100% 0, 100% calc(100% - 80px), 0 100%)",
+          marginTop: "-80px",
+          marginBottom: "-80px",
+        }}
+      >
         <section className="relative z-10 max-w-6xl mx-auto px-6 py-32 text-white">
           <Reveal className="text-center max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">Built For Teams</h2>
@@ -572,7 +593,14 @@ function Index() {
 
 
       {/* Contact */}
-      <div className="w-full bg-zinc-950">
+      <div
+        className="w-full bg-zinc-950 relative z-[1] pt-20 pb-20"
+        style={{
+          clipPath: "polygon(0 80px, 100% 0, 100% calc(100% - 80px), 0 100%)",
+          marginTop: "-80px",
+          marginBottom: "-80px",
+        }}
+      >
       <section id="contact" className="relative z-10 py-28 px-6 text-white">
         <div className="max-w-5xl mx-auto">
           <Reveal>
