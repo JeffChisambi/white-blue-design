@@ -78,7 +78,23 @@ export const Route = createFileRoute("/")({
 const blue = "#52CDEF";
 
 function Index() {
-  return (
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  const navLinks = [
+    { href: "#features", label: "Features" },
+    { href: "#how-it-works", label: "How it works" },
+    { href: "#dashboard", label: "Dashboard" },
+    { href: "#contact", label: "Contact" },
+  ];
+
+
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
       {/* premium ambient gradients */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[900px] overflow-hidden">
