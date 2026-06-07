@@ -144,51 +144,62 @@ function Index() {
 
       {/* Hero */}
       <main className="relative z-10 max-w-6xl mx-auto px-6 pt-20 text-center">
-        <div className="inline-block px-5 py-2 rounded-full border border-border bg-card/70 text-sm backdrop-blur">
-          Smart Client & Hosting Management Platform
-        </div>
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+          }}
+        >
+          <motion.div variants={revealVariants} className="inline-block px-5 py-2 rounded-full border border-border bg-card/70 text-sm backdrop-blur shadow-sm">
+            <span className="inline-block w-1.5 h-1.5 rounded-full mr-2 align-middle" style={{ backgroundColor: blue, boxShadow: `0 0 12px ${blue}` }} />
+            Smart Client & Hosting Management Platform
+          </motion.div>
 
-        <h1 className="mt-10 text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]">
-          <span className="text-foreground/30">Manage Clients, Hosting,</span>
-          <br />
-          Contracts & Invoices
-        </h1>
+          <motion.h1 variants={revealVariants} className="mt-10 text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]">
+            <span className="text-foreground/30">Manage Clients, Hosting,</span>
+            <br />
+            Contracts & Invoices
+          </motion.h1>
 
-        <p className="mt-7 mx-auto max-w-xl text-muted-foreground text-base leading-relaxed">
-          OgulaDesk helps businesses organize client records, track hosting
-          subscriptions, manage contracts, generate invoices and receipts, and
-          automate renewal reminders—all from a single, easy-to-use platform.
-        </p>
+          <motion.p variants={revealVariants} className="mt-7 mx-auto max-w-xl text-muted-foreground text-base leading-relaxed">
+            OgulaDesk helps businesses organize client records, track hosting
+            subscriptions, manage contracts, generate invoices and receipts, and
+            automate renewal reminders—all from a single, easy-to-use platform.
+          </motion.p>
 
-        <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
-          <a
-            href="#cta"
-            className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium text-white transition hover:opacity-90"
-            style={{ backgroundColor: blue }}
-          >
-            Get Started
-          </a>
-          <a
-            href="#cta"
-            className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium border border-border bg-card/70 hover:bg-card transition"
-          >
-            Sign In
-          </a>
-        </div>
+          <motion.div variants={revealVariants} className="mt-8 flex items-center justify-center gap-3 flex-wrap">
+            <a
+              href="#cta"
+              className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5"
+              style={{ backgroundColor: blue, boxShadow: `0 10px 30px -10px ${blue}` }}
+            >
+              Get Started
+            </a>
+            <a
+              href="#cta"
+              className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium border border-border bg-card/70 hover:bg-card transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Sign In
+            </a>
+          </motion.div>
 
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
-          {[
-            "Client Management",
-            "Hosting Subscription Tracking",
-            "PDF Invoices & Receipts",
-            "Automated Renewal Reminders",
-          ].map((t) => (
-            <span key={t} className="inline-flex items-center gap-1.5">
-              <span style={{ color: blue }}>✓</span>
-              {t}
-            </span>
-          ))}
-        </div>
+          <motion.div variants={revealVariants} className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
+            {[
+              "Client Management",
+              "Hosting Subscription Tracking",
+              "PDF Invoices & Receipts",
+              "Automated Renewal Reminders",
+            ].map((t) => (
+              <span key={t} className="inline-flex items-center gap-1.5">
+                <span style={{ color: blue }}>✓</span>
+                {t}
+              </span>
+            ))}
+          </motion.div>
+        </motion.div>
+
 
         {/* Circuit lines */}
         <div className="relative mt-16">
