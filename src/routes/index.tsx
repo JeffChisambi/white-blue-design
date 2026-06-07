@@ -429,8 +429,10 @@ function Index() {
               Login
             </a>
           </div>
-        </div>
+          </div>
+        </Reveal>
       </section>
+
 
       {/* Footer */}
       <footer id="contact" className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-12">
