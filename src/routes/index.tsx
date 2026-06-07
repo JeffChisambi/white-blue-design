@@ -77,15 +77,47 @@ const blue = "#52CDEF";
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
-      {/* subtle grid bg */}
+      {/* premium ambient gradients */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[900px] overflow-hidden">
+        <div
+          className="absolute left-1/2 top-[-280px] h-[760px] w-[1100px] -translate-x-1/2 rounded-full blur-3xl opacity-70"
+          style={{
+            background:
+              "radial-gradient(closest-side, rgba(82,205,239,0.28), rgba(82,205,239,0.08) 55%, transparent 75%)",
+          }}
+        />
+        <div
+          className="absolute left-[8%] top-[180px] h-[420px] w-[420px] rounded-full blur-3xl opacity-60"
+          style={{
+            background:
+              "radial-gradient(closest-side, rgba(82,205,239,0.22), transparent 70%)",
+          }}
+        />
+        <div
+          className="absolute right-[6%] top-[120px] h-[460px] w-[460px] rounded-full blur-3xl opacity-50"
+          style={{
+            background:
+              "radial-gradient(closest-side, rgba(120,170,255,0.20), transparent 70%)",
+          }}
+        />
+      </div>
+
+      {/* faded dot grid */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.25]"
+        className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(10,10,10,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(10,10,10,0.06) 1px, transparent 1px)",
-          backgroundSize: "56px 56px",
+            "radial-gradient(rgba(10,10,10,0.18) 1px, transparent 1px)",
+          backgroundSize: "22px 22px",
+          maskImage:
+            "radial-gradient(ellipse 80% 60% at 50% 30%, black 40%, transparent 85%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 80% 60% at 50% 30%, black 40%, transparent 85%)",
         }}
       />
+
+      {/* soft top vignette to fade dots into white */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background to-transparent" />
 
       {/* Nav */}
       <header className="relative z-10 w-full">
