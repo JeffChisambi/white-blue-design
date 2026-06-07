@@ -4,15 +4,20 @@ import { Logo } from "@/components/Logo";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Redefining Supply Chains With AI Precision" },
-      { name: "description", content: "AI helps you move faster and smarter, cutting costs and increasing customer satisfaction at every step of your supply chain." },
+      { title: "OgulaDesk — Smart Client & Hosting Management Platform" },
+      {
+        name: "description",
+        content:
+          "OgulaDesk helps businesses organize client records, track hosting subscriptions, manage contracts, generate invoices and receipts, and automate renewal reminders—all from one dashboard.",
+      },
     ],
   }),
   component: Index,
 });
 
+const blue = "#52CDEF";
+
 function Index() {
-  const blue = "#52CDEF";
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
       {/* subtle grid bg */}
@@ -30,18 +35,18 @@ function Index() {
         <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
           <a href="/" className="flex items-center gap-3">
             <Logo className="w-9 h-9" />
-            <span className="text-lg font-semibold tracking-tight">Nexora</span>
+            <span className="text-lg font-semibold tracking-tight">OgulaDesk</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm">
-            <a href="#services" className="hover:text-muted-foreground transition">Services</a>
-            <a href="#ai-lab" className="hover:text-muted-foreground transition">AI lab</a>
-            <a href="#assessment" className="hover:text-muted-foreground transition">AI assessment</a>
+            <a href="#features" className="hover:text-muted-foreground transition">Features</a>
+            <a href="#how-it-works" className="hover:text-muted-foreground transition">How it works</a>
+            <a href="#dashboard" className="hover:text-muted-foreground transition">Dashboard</a>
             <a href="#contact" className="hover:text-muted-foreground transition">Contact</a>
           </nav>
           <a
-            href="#contact"
+            href="#cta"
             className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full text-sm font-medium text-white transition hover:opacity-90"
-            style={{ backgroundColor: "#52CDEF" }}
+            style={{ backgroundColor: blue }}
           >
             Get Started
           </a>
@@ -51,19 +56,50 @@ function Index() {
       {/* Hero */}
       <main className="relative z-10 max-w-6xl mx-auto px-6 pt-20 text-center">
         <div className="inline-block px-5 py-2 rounded-full border border-border bg-card/70 text-sm backdrop-blur">
-          Stay Ahead Of The Competition
+          Smart Client & Hosting Management Platform
         </div>
 
-        <h1 className="mt-10 text-6xl md:text-7xl font-bold tracking-tight leading-[1.05]">
-          <span className="text-foreground/30">Redefining Supply Chains</span>
+        <h1 className="mt-10 text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]">
+          <span className="text-foreground/30">Manage Clients, Hosting,</span>
           <br />
-          With AI Precision
+          Contracts & Invoices
         </h1>
 
         <p className="mt-7 mx-auto max-w-xl text-muted-foreground text-base leading-relaxed">
-          AI helps you move faster and smarter, cutting costs and increasing
-          customer satisfaction at every step of your supply chain.
+          OgulaDesk helps businesses organize client records, track hosting
+          subscriptions, manage contracts, generate invoices and receipts, and
+          automate renewal reminders—all from a single, easy-to-use platform.
         </p>
+
+        <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
+          <a
+            href="#cta"
+            className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium text-white transition hover:opacity-90"
+            style={{ backgroundColor: blue }}
+          >
+            Get Started
+          </a>
+          <a
+            href="#cta"
+            className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium border border-border bg-card/70 hover:bg-card transition"
+          >
+            Sign In
+          </a>
+        </div>
+
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
+          {[
+            "Client Management",
+            "Hosting Subscription Tracking",
+            "PDF Invoices & Receipts",
+            "Automated Renewal Reminders",
+          ].map((t) => (
+            <span key={t} className="inline-flex items-center gap-1.5">
+              <span style={{ color: blue }}>✓</span>
+              {t}
+            </span>
+          ))}
+        </div>
 
         {/* Circuit lines */}
         <div className="relative mt-16">
@@ -90,39 +126,339 @@ function Index() {
 
           {/* Stats grid */}
           <div className="relative grid grid-cols-1 md:grid-cols-4 gap-4 mt-12 p-3 rounded-3xl border border-border bg-card/50 backdrop-blur">
-            {/* Left col */}
             <div className="flex flex-col gap-4">
-              <StatCard label="Data Points Processed" value="50B+" />
-              <StatCard label="Optimization Algorithms Developed" value="55+" />
+              <StatCard label="Total Clients" value="1,200+" />
+              <StatCard label="Active Subscriptions" value="850+" />
             </div>
 
-            {/* Chart center */}
             <div className="md:col-span-2 rounded-2xl border border-border bg-card p-6 relative overflow-hidden min-h-[260px]">
-              <ChartSVG blue={blue} />
+              <ChartSVG />
               <div
                 className="absolute top-6 right-10 px-3 py-1 rounded-full text-xs border"
                 style={{ borderColor: blue, color: blue, background: "rgba(82,205,239,0.08)" }}
               >
-                Efficiency <span className="font-semibold">+103%</span>
+                Renewals On-Time <span className="font-semibold">+98%</span>
               </div>
               <div
                 className="absolute bottom-16 left-1/3 px-3 py-1 rounded-full text-xs border"
                 style={{ borderColor: blue, color: blue, background: "rgba(82,205,239,0.08)" }}
               >
-                Cost Reduction <span className="font-semibold">-34%</span>
+                Admin Time <span className="font-semibold">-45%</span>
               </div>
             </div>
 
-            {/* Right col */}
             <div className="flex flex-col gap-4">
-              <StatCard label="AI Models Deployed" value="70+" />
-              <StatCard label="Predictive Models Developed" value="40+" />
+              <StatCard label="Invoices Issued" value="10K+" />
+              <StatCard label="Reminders Automated" value="24/7" />
             </div>
           </div>
         </div>
       </main>
 
-      <div className="h-32" />
+      {/* Features */}
+      <section id="features" className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+            Everything You Need To Manage Your Hosting Clients
+          </h2>
+          <p className="mt-5 text-muted-foreground">
+            Stop juggling spreadsheets and manual follow-ups. OgulaDesk
+            centralizes your client operations so you can focus on growing your
+            business.
+          </p>
+        </div>
+
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {features.map((f) => (
+            <FeatureCard key={f.title} {...f} />
+          ))}
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section id="how-it-works" className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+            Manage Your Entire Client Lifecycle In Four Simple Steps
+          </h2>
+        </div>
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-4 gap-4">
+          {steps.map((s, i) => (
+            <div
+              key={s.title}
+              className="rounded-2xl border border-border bg-card p-6 relative"
+            >
+              <div
+                className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold text-white"
+                style={{ backgroundColor: blue }}
+              >
+                {i + 1}
+              </div>
+              <h3 className="mt-5 font-semibold text-lg">{s.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+            Why Businesses Choose OgulaDesk
+          </h2>
+        </div>
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {benefits.map((b) => (
+            <div key={b.title} className="rounded-2xl border border-border bg-card p-6">
+              <div
+                className="w-9 h-9 rounded-lg flex items-center justify-center"
+                style={{ background: "rgba(82,205,239,0.12)", color: blue }}
+              >
+                ✓
+              </div>
+              <h3 className="mt-5 font-semibold">{b.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Dashboard preview */}
+      <section id="dashboard" className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+            One Dashboard. Complete Control.
+          </h2>
+          <p className="mt-5 text-muted-foreground">
+            Everything you need is available from a centralized and intuitive
+            dashboard.
+          </p>
+        </div>
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+          {[
+            "Total Clients",
+            "Active Hosting Subscriptions",
+            "Pending Invoices",
+            "Paid Invoices",
+            "Expiring Subscriptions",
+            "Recent Notifications",
+          ].map((m) => (
+            <div
+              key={m}
+              className="rounded-2xl border border-border bg-card p-5 text-center"
+            >
+              <div className="text-xs text-muted-foreground">{m}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Roles */}
+      <section className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Built For Teams</h2>
+        </div>
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <RoleCard
+            title="Super Admin"
+            items={[
+              "Manage the entire system",
+              "Create and manage admins",
+              "View all records",
+              "Access all modules",
+            ]}
+          />
+          <RoleCard
+            title="Admin"
+            items={[
+              "Manage clients",
+              "Create subscriptions",
+              "Generate invoices",
+              "Generate receipts",
+              "Monitor notifications",
+            ]}
+          />
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section id="cta" className="relative z-10 max-w-4xl mx-auto px-6 pt-32">
+        <div className="rounded-3xl border border-border bg-card/70 backdrop-blur p-12 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+            Ready To Simplify Client and Hosting Management?
+          </h2>
+          <p className="mt-5 text-muted-foreground max-w-xl mx-auto">
+            Start managing clients, subscriptions, contracts, invoices, and
+            reminders from a single platform designed for efficiency and growth.
+          </p>
+          <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
+            <a
+              href="#"
+              className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium text-white transition hover:opacity-90"
+              style={{ backgroundColor: blue }}
+            >
+              Create Account
+            </a>
+            <a
+              href="#"
+              className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium border border-border bg-card hover:bg-card/80 transition"
+            >
+              Login
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer id="contact" className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-border pt-12">
+          <div className="col-span-2 md:col-span-1">
+            <a href="/" className="flex items-center gap-3">
+              <Logo className="w-8 h-8" />
+              <span className="font-semibold">OgulaDesk</span>
+            </a>
+            <p className="mt-3 text-sm text-muted-foreground max-w-xs">
+              Simple Client Management. Reliable Hosting Administration.
+            </p>
+          </div>
+          <FooterCol title="Product" links={["Features", "Dashboard", "Pricing"]} />
+          <FooterCol title="Account" links={["Login", "Sign Up"]} />
+          <FooterCol title="Support" links={["Help Center", "Contact Support"]} />
+        </div>
+        <div className="mt-10 text-xs text-muted-foreground">
+          © 2026 OgulaDesk. All Rights Reserved.
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+const features = [
+  {
+    title: "Client Management",
+    desc: "Keep all client information organized and accessible.",
+    items: [
+      "Add and manage clients",
+      "Update client information",
+      "Assign services to clients",
+      "View complete client profiles",
+    ],
+  },
+  {
+    title: "Hosting Subscription Tracking",
+    desc: "Never lose track of hosting periods again.",
+    items: [
+      "Monitor active subscriptions",
+      "Track start and end dates",
+      "View subscription status",
+      "Manage hosting services efficiently",
+    ],
+  },
+  {
+    title: "Contract Management",
+    desc: "Track service agreements with confidence.",
+    items: [
+      "One-time contracts",
+      "Long-term contracts",
+      "Auto-renewal tracking",
+      "Contract status visibility",
+    ],
+  },
+  {
+    title: "Invoice Generation",
+    desc: "Create professional invoices in seconds.",
+    items: [
+      "Generate PDF invoices",
+      "Track invoice status",
+      "View pending invoices",
+      "Auto-cancel after 30 days",
+    ],
+  },
+  {
+    title: "Receipt Management",
+    desc: "Maintain accurate payment records.",
+    items: [
+      "Generate PDF receipts",
+      "Store receipt history",
+      "Link receipts to invoices",
+      "Access payment records instantly",
+    ],
+  },
+  {
+    title: "Automated Notifications",
+    desc: "Stay ahead of renewals and deadlines.",
+    items: [
+      "Hosting expiry reminders",
+      "Subscription renewal alerts",
+      "Invoice reminders",
+      "Notification history tracking",
+    ],
+  },
+];
+
+const steps = [
+  { title: "Add Your Clients", desc: "Register clients and store their information securely within the system." },
+  { title: "Assign Hosting Services", desc: "Create subscriptions and define hosting periods for each client." },
+  { title: "Manage Contracts & Billing", desc: "Track contract types, generate invoices, and record payments through receipts." },
+  { title: "Receive Automated Reminders", desc: "Let OgulaDesk notify you about upcoming hosting renewals and invoice deadlines." },
+];
+
+const benefits = [
+  { title: "Save Time", desc: "Reduce manual administrative work and repetitive tracking tasks." },
+  { title: "Stay Organized", desc: "Manage clients, subscriptions, contracts, invoices, and receipts from one dashboard." },
+  { title: "Improve Accuracy", desc: "Minimize errors caused by spreadsheets and manual record keeping." },
+  { title: "Never Miss Renewals", desc: "Receive timely reminders before hosting plans expire." },
+  { title: "Professional Billing", desc: "Generate and store PDF invoices and receipts effortlessly." },
+  { title: "Better Visibility", desc: "Monitor client activities and hosting subscriptions in real time." },
+];
+
+function FeatureCard({ title, desc, items }: { title: string; desc: string; items: string[] }) {
+  return (
+    <div className="rounded-2xl border border-border bg-card p-6">
+      <h3 className="font-semibold text-lg">{title}</h3>
+      <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
+      <ul className="mt-4 space-y-2">
+        {items.map((i) => (
+          <li key={i} className="flex items-start gap-2 text-sm">
+            <span style={{ color: blue }} className="mt-0.5">✓</span>
+            <span className="text-muted-foreground">{i}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function RoleCard({ title, items }: { title: string; items: string[] }) {
+  return (
+    <div className="rounded-2xl border border-border bg-card p-8">
+      <h3 className="font-semibold text-xl">{title}</h3>
+      <ul className="mt-5 space-y-2">
+        {items.map((i) => (
+          <li key={i} className="flex items-start gap-2 text-sm">
+            <span style={{ color: blue }} className="mt-0.5">✓</span>
+            <span className="text-muted-foreground">{i}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function FooterCol({ title, links }: { title: string; links: string[] }) {
+  return (
+    <div>
+      <div className="text-sm font-semibold">{title}</div>
+      <ul className="mt-3 space-y-2">
+        {links.map((l) => (
+          <li key={l}>
+            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition">
+              {l}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -136,7 +472,7 @@ function StatCard({ label, value }: { label: string; value: string }) {
   );
 }
 
-function ChartSVG({ blue }: { blue: string }) {
+function ChartSVG() {
   return (
     <svg viewBox="0 0 500 220" className="w-full h-full absolute inset-0 p-6">
       <defs>
@@ -145,11 +481,9 @@ function ChartSVG({ blue }: { blue: string }) {
           <stop offset="100%" stopColor={blue} stopOpacity="0" />
         </linearGradient>
       </defs>
-      {/* dots bg */}
       {Array.from({ length: 40 }).map((_, i) => (
         <circle key={i} cx={(i * 13) % 500} cy={(i * 29) % 220} r="1" fill={blue} opacity="0.25" />
       ))}
-      {/* upward line */}
       <path
         d="M20 170 L80 150 L130 140 L180 120 L230 110 L290 80 L350 70 L420 40 L470 30"
         fill="none"
@@ -160,7 +494,6 @@ function ChartSVG({ blue }: { blue: string }) {
         d="M20 170 L80 150 L130 140 L180 120 L230 110 L290 80 L350 70 L420 40 L470 30 L470 210 L20 210 Z"
         fill="url(#up)"
       />
-      {/* downward dashed */}
       <path
         d="M20 130 L80 140 L130 150 L200 160 L260 170 L320 165 L380 175 L440 180 L470 185"
         fill="none"
