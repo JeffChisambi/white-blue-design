@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Logo } from "@/components/Logo";
-import ogulaLogo from "@/assets/ogulalogo.svg.asset.json";
+import ogulaLogo from "@/assets/ogulalogo.svg";
 import { motion, AnimatePresence, type Variants } from "motion/react";
 import { useState, useEffect, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
@@ -143,7 +143,7 @@ function Index() {
       <header className="relative z-10 w-full">
         <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
           <a href="/" className="flex items-center">
-            <img src={ogulaLogo.url} alt="OgulaDesk" className="h-8 w-auto" />
+            <img src={ogulaLogo} alt="OgulaDesk" className="h-8 w-auto" />
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm">
             <a href="#features" className="hover:text-muted-foreground transition">Features</a>
@@ -199,7 +199,7 @@ function Index() {
                 }}
               />
               <div className="relative flex items-center justify-between px-6 py-5 border-b border-border">
-                <img src={ogulaLogo.url} alt="OgulaDesk" className="h-8 w-auto" />
+                <img src={ogulaLogo} alt="OgulaDesk" className="h-8 w-auto" />
                 <button
                   type="button"
                   aria-label="Close menu"
