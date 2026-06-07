@@ -26,14 +26,26 @@ function Index() {
       />
 
       {/* Nav */}
-      <header className="relative z-10 flex items-center justify-center pt-8">
-        <nav className="flex items-center gap-10 text-sm">
-          <a href="#services" className="hover:opacity-70 transition">Services</a>
-          <a href="#ai-lab" className="hover:opacity-70 transition">AI lab</a>
-          <Logo className="w-11 h-11" />
-          <a href="#assessment" className="hover:opacity-70 transition">AI assessment</a>
-          <a href="#contact" className="hover:opacity-70 transition">Contact</a>
-        </nav>
+      <header className="relative z-10 w-full">
+        <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+          <a href="/" className="flex items-center gap-3">
+            <Logo className="w-9 h-9" />
+            <span className="text-lg font-semibold tracking-tight">Nexora</span>
+          </a>
+          <nav className="hidden md:flex items-center gap-8 text-sm">
+            <a href="#services" className="hover:text-muted-foreground transition">Services</a>
+            <a href="#ai-lab" className="hover:text-muted-foreground transition">AI lab</a>
+            <a href="#assessment" className="hover:text-muted-foreground transition">AI assessment</a>
+            <a href="#contact" className="hover:text-muted-foreground transition">Contact</a>
+          </nav>
+          <a
+            href="#contact"
+            className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full text-sm font-medium text-white transition hover:opacity-90"
+            style={{ backgroundColor: "#52CDEF" }}
+          >
+            Get Started
+          </a>
+        </div>
       </header>
 
       {/* Hero */}
