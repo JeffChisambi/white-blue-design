@@ -563,8 +563,131 @@ function Index() {
       </section>
 
 
+      {/* Contact */}
+      <section id="contact" className="relative z-10 py-28 px-6">
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="text-center mb-14">
+              <span className="inline-block text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: blue }}>Get in touch</span>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Let's talk.</h2>
+              <p className="mt-4 text-muted-foreground max-w-md mx-auto">
+                Have a question, a feature request, or just want to say hi? Drop us a message and we'll get back to you.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <div className="relative rounded-2xl border border-border bg-card/60 backdrop-blur-sm overflow-hidden p-8 md:p-12">
+              {/* decorative glow */}
+              <div
+                className="pointer-events-none absolute -top-32 -right-32 w-96 h-96 rounded-full blur-3xl opacity-15"
+                style={{ background: blue }}
+              />
+              <div
+                className="pointer-events-none absolute -bottom-32 -left-32 w-72 h-72 rounded-full blur-3xl opacity-10"
+                style={{ background: blue }}
+              />
+
+              <div className="relative grid md:grid-cols-2 gap-12">
+                {/* Left — info */}
+                <div className="flex flex-col justify-between gap-8">
+                  <div>
+                    <p className="text-lg font-semibold mb-2">OgulaDesk Support</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      We're a small, focused team. Expect a real reply — not a bot — within one business day.
+                    </p>
+                  </div>
+
+                  <div className="space-y-4">
+                    <a
+                      href="mailto:hello@oguladesk.com"
+                      className="flex items-center gap-3 group"
+                    >
+                      <span
+                        className="flex items-center justify-center w-10 h-10 rounded-xl border border-border group-hover:border-[#52CDEF]/50 transition"
+                        style={{ background: `${blue}12` }}
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={blue} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                      </span>
+                      <span className="text-sm text-muted-foreground group-hover:text-foreground transition">hello@oguladesk.com</span>
+                    </a>
+
+                    <a
+                      href="https://twitter.com/oguladesk"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 group"
+                    >
+                      <span
+                        className="flex items-center justify-center w-10 h-10 rounded-xl border border-border group-hover:border-[#52CDEF]/50 transition"
+                        style={{ background: `${blue}12` }}
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill={blue}><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                      </span>
+                      <span className="text-sm text-muted-foreground group-hover:text-foreground transition">@oguladesk</span>
+                    </a>
+                  </div>
+
+                  <p className="text-xs text-muted-foreground/60">
+                    Mon – Fri · 9 AM – 6 PM WAT
+                  </p>
+                </div>
+
+                {/* Right — form */}
+                <form
+                  className="space-y-4"
+                  onSubmit={(e) => e.preventDefault()}
+                >
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
+                      <label className="text-xs text-muted-foreground">Name</label>
+                      <input
+                        type="text"
+                        placeholder="Jane Smith"
+                        className="w-full px-4 py-2.5 rounded-lg bg-background border border-border text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-[#52CDEF]/60 transition"
+                      />
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-xs text-muted-foreground">Email</label>
+                      <input
+                        type="email"
+                        placeholder="jane@example.com"
+                        className="w-full px-4 py-2.5 rounded-lg bg-background border border-border text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-[#52CDEF]/60 transition"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-1.5">
+                    <label className="text-xs text-muted-foreground">Subject</label>
+                    <input
+                      type="text"
+                      placeholder="What's on your mind?"
+                      className="w-full px-4 py-2.5 rounded-lg bg-background border border-border text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-[#52CDEF]/60 transition"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <label className="text-xs text-muted-foreground">Message</label>
+                    <textarea
+                      rows={4}
+                      placeholder="Tell us more..."
+                      className="w-full px-4 py-2.5 rounded-lg bg-background border border-border text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-[#52CDEF]/60 transition resize-none"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full py-3 rounded-full text-sm font-semibold text-white transition hover:opacity-90 hover:-translate-y-0.5 duration-200"
+                    style={{ backgroundColor: blue, boxShadow: `0 8px 24px -8px ${blue}` }}
+                  >
+                    Send Message
+                  </button>
+                </form>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Footer */}
-      <footer id="contact" className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-12">
+      <footer className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-border pt-12">
           <div className="col-span-2 md:col-span-1">
             <a href="/" className="flex items-center gap-3">
