@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import ogulaLogo from "@/assets/ogulalogo.svg";
 
@@ -25,6 +25,13 @@ const fadeUp = {
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [form, setForm] = useState({ email: "", password: "" });
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -73,7 +80,7 @@ function Login() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background to-transparent" />
 
       {/* Nav */}
-      <header className="relative z-10 w-full">
+      <header className={`sticky top-0 z-20 w-full transition-all duration-300 ${scrolled ? "border-b border-border bg-background/80 backdrop-blur-md" : ""}`}>
         <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
           <Link to="/" className="flex items-center">
             <img src={ogulaLogo} alt="OgulaDesk" className="h-8 w-auto" />

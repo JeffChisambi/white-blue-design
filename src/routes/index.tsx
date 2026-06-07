@@ -79,13 +79,18 @@ const blue = "#52CDEF";
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const navLinks = [
     { href: "#features", label: "Features" },
@@ -140,7 +145,7 @@ function Index() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background to-transparent" />
 
       {/* Nav */}
-      <header className="relative z-10 w-full">
+      <header className={`sticky top-0 z-20 w-full transition-all duration-300 ${scrolled ? "border-b border-border bg-background/80 backdrop-blur-md" : ""}`}>
         <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
           <a href="/" className="flex items-center">
             <img src={ogulaLogo} alt="OgulaDesk" className="h-8 w-auto" />
