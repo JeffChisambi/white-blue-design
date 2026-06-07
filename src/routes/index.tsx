@@ -164,9 +164,7 @@ function Index() {
           </motion.h1>
 
           <motion.p variants={revealVariants} className="mt-7 mx-auto max-w-xl text-muted-foreground text-base leading-relaxed">
-            OgulaDesk helps businesses organize client records, track hosting
-            subscriptions, manage contracts, generate invoices and receipts, and
-            automate renewal reminders—all from a single, easy-to-use platform.
+            Manage clients, hosting, contracts, billing, and renewals in one place.
           </motion.p>
 
           <motion.div variants={revealVariants} className="mt-8 flex items-center justify-center gap-3 flex-wrap">
