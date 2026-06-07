@@ -373,7 +373,7 @@ function Index() {
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Built For Teams</h2>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-4">
           <RoleCard
             title="Super Admin"
             items={[
@@ -393,31 +393,39 @@ function Index() {
               "Monitor notifications",
             ]}
           />
-        </div>
+        </RevealGroup>
       </section>
 
       {/* CTA */}
       <section id="cta" className="relative z-10 max-w-4xl mx-auto px-6 pt-32">
-        <div className="rounded-3xl border border-border bg-card/70 backdrop-blur p-12 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-            Ready To Simplify Client and Hosting Management?
-          </h2>
-          <p className="mt-5 text-muted-foreground max-w-xl mx-auto">
-            Start managing clients, subscriptions, contracts, invoices, and
-            reminders from a single platform designed for efficiency and growth.
-          </p>
-          <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
-            <a
-              href="#"
-              className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium text-white transition hover:opacity-90"
-              style={{ backgroundColor: blue }}
-            >
-              Create Account
-            </a>
-            <a
-              href="#"
-              className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium border border-border bg-card hover:bg-card/80 transition"
-            >
+        <Reveal>
+          <div
+            className="relative rounded-3xl border border-border bg-card/70 backdrop-blur p-12 text-center overflow-hidden"
+            style={{
+              backgroundImage:
+                "radial-gradient(ellipse 70% 100% at 50% 0%, rgba(82,205,239,0.18), transparent 70%)",
+            }}
+          >
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+              Ready To Simplify Client and Hosting Management?
+            </h2>
+            <p className="mt-5 text-muted-foreground max-w-xl mx-auto">
+              Start managing clients, subscriptions, contracts, invoices, and
+              reminders from a single platform designed for efficiency and growth.
+            </p>
+            <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
+              <a
+                href="#"
+                className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90"
+                style={{ backgroundColor: blue, boxShadow: `0 10px 30px -10px ${blue}` }}
+              >
+                Create Account
+              </a>
+              <a
+                href="#"
+                className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium border border-border bg-card hover:bg-card/80 transition-all duration-300 hover:-translate-y-0.5"
+              >
+
               Login
             </a>
           </div>
