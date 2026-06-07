@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Logo } from "@/components/Logo";
+import ogulaLogo from "@/assets/ogulalogo.svg.asset.json";
 import { motion, type Variants } from "motion/react";
 import type { ReactNode } from "react";
 
