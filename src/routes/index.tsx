@@ -1,5 +1,62 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Logo } from "@/components/Logo";
+import { motion, type Variants } from "motion/react";
+import type { ReactNode } from "react";
+
+const easeOut = [0.22, 1, 0.36, 1] as const;
+
+const revealVariants: Variants = {
+  hidden: { opacity: 0, y: 18 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeOut } },
+};
+
+function Reveal({
+  children,
+  delay = 0,
+  className,
+}: {
+  children: ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  return (
+    <motion.div
+      className={className}
+      variants={revealVariants}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.7, ease: easeOut, delay }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function RevealGroup({
+  children,
+  className,
+  stagger = 0.08,
+}: {
+  children: ReactNode;
+  className?: string;
+  stagger?: number;
+}) {
+  return (
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-80px" }}
+      variants={{
+        hidden: {},
+        show: { transition: { staggerChildren: stagger } },
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,15 +77,47 @@ const blue = "#52CDEF";
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
-      {/* subtle grid bg */}
+      {/* premium ambient gradients */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[900px] overflow-hidden">
+        <div
+          className="absolute left-1/2 top-[-280px] h-[760px] w-[1100px] -translate-x-1/2 rounded-full blur-3xl opacity-70"
+          style={{
+            background:
+              "radial-gradient(closest-side, rgba(82,205,239,0.28), rgba(82,205,239,0.08) 55%, transparent 75%)",
+          }}
+        />
+        <div
+          className="absolute left-[8%] top-[180px] h-[420px] w-[420px] rounded-full blur-3xl opacity-60"
+          style={{
+            background:
+              "radial-gradient(closest-side, rgba(82,205,239,0.22), transparent 70%)",
+          }}
+        />
+        <div
+          className="absolute right-[6%] top-[120px] h-[460px] w-[460px] rounded-full blur-3xl opacity-50"
+          style={{
+            background:
+              "radial-gradient(closest-side, rgba(120,170,255,0.20), transparent 70%)",
+          }}
+        />
+      </div>
+
+      {/* faded dot grid */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.25]"
+        className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(10,10,10,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(10,10,10,0.06) 1px, transparent 1px)",
-          backgroundSize: "56px 56px",
+            "radial-gradient(rgba(10,10,10,0.18) 1px, transparent 1px)",
+          backgroundSize: "22px 22px",
+          maskImage:
+            "radial-gradient(ellipse 80% 60% at 50% 30%, black 40%, transparent 85%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 80% 60% at 50% 30%, black 40%, transparent 85%)",
         }}
       />
+
+      {/* soft top vignette to fade dots into white */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background to-transparent" />
 
       {/* Nav */}
       <header className="relative z-10 w-full">
@@ -55,51 +144,62 @@ function Index() {
 
       {/* Hero */}
       <main className="relative z-10 max-w-6xl mx-auto px-6 pt-20 text-center">
-        <div className="inline-block px-5 py-2 rounded-full border border-border bg-card/70 text-sm backdrop-blur">
-          Smart Client & Hosting Management Platform
-        </div>
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+          }}
+        >
+          <motion.div variants={revealVariants} className="inline-block px-5 py-2 rounded-full border border-border bg-card/70 text-sm backdrop-blur shadow-sm">
+            <span className="inline-block w-1.5 h-1.5 rounded-full mr-2 align-middle" style={{ backgroundColor: blue, boxShadow: `0 0 12px ${blue}` }} />
+            Smart Client & Hosting Management Platform
+          </motion.div>
 
-        <h1 className="mt-10 text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]">
-          <span className="text-foreground/30">Manage Clients, Hosting,</span>
-          <br />
-          Contracts & Invoices
-        </h1>
+          <motion.h1 variants={revealVariants} className="mt-10 text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]">
+            <span className="text-foreground/30">Manage Clients, Hosting,</span>
+            <br />
+            Contracts & Invoices
+          </motion.h1>
 
-        <p className="mt-7 mx-auto max-w-xl text-muted-foreground text-base leading-relaxed">
-          OgulaDesk helps businesses organize client records, track hosting
-          subscriptions, manage contracts, generate invoices and receipts, and
-          automate renewal reminders—all from a single, easy-to-use platform.
-        </p>
+          <motion.p variants={revealVariants} className="mt-7 mx-auto max-w-xl text-muted-foreground text-base leading-relaxed">
+            OgulaDesk helps businesses organize client records, track hosting
+            subscriptions, manage contracts, generate invoices and receipts, and
+            automate renewal reminders—all from a single, easy-to-use platform.
+          </motion.p>
 
-        <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
-          <a
-            href="#cta"
-            className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium text-white transition hover:opacity-90"
-            style={{ backgroundColor: blue }}
-          >
-            Get Started
-          </a>
-          <a
-            href="#cta"
-            className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium border border-border bg-card/70 hover:bg-card transition"
-          >
-            Sign In
-          </a>
-        </div>
+          <motion.div variants={revealVariants} className="mt-8 flex items-center justify-center gap-3 flex-wrap">
+            <a
+              href="#cta"
+              className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5"
+              style={{ backgroundColor: blue, boxShadow: `0 10px 30px -10px ${blue}` }}
+            >
+              Get Started
+            </a>
+            <a
+              href="#cta"
+              className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium border border-border bg-card/70 hover:bg-card transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Sign In
+            </a>
+          </motion.div>
 
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
-          {[
-            "Client Management",
-            "Hosting Subscription Tracking",
-            "PDF Invoices & Receipts",
-            "Automated Renewal Reminders",
-          ].map((t) => (
-            <span key={t} className="inline-flex items-center gap-1.5">
-              <span style={{ color: blue }}>✓</span>
-              {t}
-            </span>
-          ))}
-        </div>
+          <motion.div variants={revealVariants} className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
+            {[
+              "Client Management",
+              "Hosting Subscription Tracking",
+              "PDF Invoices & Receipts",
+              "Automated Renewal Reminders",
+            ].map((t) => (
+              <span key={t} className="inline-flex items-center gap-1.5">
+                <span style={{ color: blue }}>✓</span>
+                {t}
+              </span>
+            ))}
+          </motion.div>
+        </motion.div>
+
 
         {/* Circuit lines */}
         <div className="relative mt-16">
@@ -157,7 +257,7 @@ function Index() {
 
       {/* Features */}
       <section id="features" className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
-        <div className="text-center max-w-2xl mx-auto">
+        <Reveal className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             Everything You Need To Manage Your Hosting Clients
           </h2>
@@ -166,51 +266,60 @@ function Index() {
             centralizes your client operations so you can focus on growing your
             business.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {features.map((f) => (
             <FeatureCard key={f.title} {...f} />
           ))}
-        </div>
+        </RevealGroup>
       </section>
 
       {/* How it works */}
       <section id="how-it-works" className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
-        <div className="text-center max-w-2xl mx-auto">
+        <Reveal className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             Manage Your Entire Client Lifecycle In Four Simple Steps
           </h2>
-        </div>
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-4 gap-4">
+        </Reveal>
+        <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-4 gap-4">
           {steps.map((s, i) => (
-            <div
+            <motion.div
               key={s.title}
-              className="rounded-2xl border border-border bg-card p-6 relative"
+              variants={revealVariants}
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.4, ease: easeOut }}
+              className="rounded-2xl border border-border bg-card p-6 relative transition-shadow duration-500 hover:shadow-[0_18px_50px_-25px_rgba(82,205,239,0.6)]"
             >
               <div
                 className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold text-white"
-                style={{ backgroundColor: blue }}
+                style={{ backgroundColor: blue, boxShadow: `0 8px 24px -8px ${blue}` }}
               >
                 {i + 1}
               </div>
               <h3 className="mt-5 font-semibold text-lg">{s.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </RevealGroup>
       </section>
 
       {/* Benefits */}
       <section className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
-        <div className="text-center max-w-2xl mx-auto">
+        <Reveal className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             Why Businesses Choose OgulaDesk
           </h2>
-        </div>
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        </Reveal>
+        <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {benefits.map((b) => (
-            <div key={b.title} className="rounded-2xl border border-border bg-card p-6">
+            <motion.div
+              key={b.title}
+              variants={revealVariants}
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.4, ease: easeOut }}
+              className="rounded-2xl border border-border bg-card p-6 transition-shadow duration-500 hover:shadow-[0_18px_50px_-25px_rgba(82,205,239,0.6)]"
+            >
               <div
                 className="w-9 h-9 rounded-lg flex items-center justify-center"
                 style={{ background: "rgba(82,205,239,0.12)", color: blue }}
@@ -219,14 +328,15 @@ function Index() {
               </div>
               <h3 className="mt-5 font-semibold">{b.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </RevealGroup>
       </section>
+
 
       {/* Dashboard preview */}
       <section id="dashboard" className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
-        <div className="text-center max-w-2xl mx-auto">
+        <Reveal className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             One Dashboard. Complete Control.
           </h2>
@@ -234,8 +344,8 @@ function Index() {
             Everything you need is available from a centralized and intuitive
             dashboard.
           </p>
-        </div>
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+        </Reveal>
+        <RevealGroup className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3" stagger={0.05}>
           {[
             "Total Clients",
             "Active Hosting Subscriptions",
@@ -244,22 +354,26 @@ function Index() {
             "Expiring Subscriptions",
             "Recent Notifications",
           ].map((m) => (
-            <div
+            <motion.div
               key={m}
-              className="rounded-2xl border border-border bg-card p-5 text-center"
+              variants={revealVariants}
+              whileHover={{ y: -3 }}
+              transition={{ duration: 0.4, ease: easeOut }}
+              className="rounded-2xl border border-border bg-card p-5 text-center transition-shadow duration-500 hover:shadow-[0_18px_50px_-25px_rgba(82,205,239,0.6)]"
             >
               <div className="text-xs text-muted-foreground">{m}</div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </RevealGroup>
       </section>
 
       {/* Roles */}
       <section className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
-        <div className="text-center max-w-2xl mx-auto">
+        <Reveal className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Built For Teams</h2>
-        </div>
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-4">
+        </Reveal>
+
+        <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-4">
           <RoleCard
             title="Super Admin"
             items={[
@@ -279,36 +393,46 @@ function Index() {
               "Monitor notifications",
             ]}
           />
-        </div>
+        </RevealGroup>
       </section>
 
       {/* CTA */}
       <section id="cta" className="relative z-10 max-w-4xl mx-auto px-6 pt-32">
-        <div className="rounded-3xl border border-border bg-card/70 backdrop-blur p-12 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-            Ready To Simplify Client and Hosting Management?
-          </h2>
-          <p className="mt-5 text-muted-foreground max-w-xl mx-auto">
-            Start managing clients, subscriptions, contracts, invoices, and
-            reminders from a single platform designed for efficiency and growth.
-          </p>
-          <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
-            <a
-              href="#"
-              className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium text-white transition hover:opacity-90"
-              style={{ backgroundColor: blue }}
-            >
-              Create Account
-            </a>
-            <a
-              href="#"
-              className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium border border-border bg-card hover:bg-card/80 transition"
-            >
+        <Reveal>
+          <div
+            className="relative rounded-3xl border border-border bg-card/70 backdrop-blur p-12 text-center overflow-hidden"
+            style={{
+              backgroundImage:
+                "radial-gradient(ellipse 70% 100% at 50% 0%, rgba(82,205,239,0.18), transparent 70%)",
+            }}
+          >
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+              Ready To Simplify Client and Hosting Management?
+            </h2>
+            <p className="mt-5 text-muted-foreground max-w-xl mx-auto">
+              Start managing clients, subscriptions, contracts, invoices, and
+              reminders from a single platform designed for efficiency and growth.
+            </p>
+            <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
+              <a
+                href="#"
+                className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90"
+                style={{ backgroundColor: blue, boxShadow: `0 10px 30px -10px ${blue}` }}
+              >
+                Create Account
+              </a>
+              <a
+                href="#"
+                className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium border border-border bg-card hover:bg-card/80 transition-all duration-300 hover:-translate-y-0.5"
+              >
+
               Login
             </a>
           </div>
-        </div>
+          </div>
+        </Reveal>
       </section>
+
 
       {/* Footer */}
       <footer id="contact" className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-12">
@@ -415,7 +539,16 @@ const benefits = [
 
 function FeatureCard({ title, desc, items }: { title: string; desc: string; items: string[] }) {
   return (
-    <div className="rounded-2xl border border-border bg-card p-6">
+    <motion.div
+      variants={revealVariants}
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.45, ease: easeOut }}
+      className="group relative rounded-2xl border border-border bg-card p-6 overflow-hidden transition-shadow duration-500 hover:shadow-[0_22px_60px_-28px_rgba(82,205,239,0.55)] hover:border-[rgba(82,205,239,0.4)]"
+    >
+      <div
+        className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"
+        style={{ background: "radial-gradient(circle, rgba(82,205,239,0.35), transparent 70%)" }}
+      />
       <h3 className="font-semibold text-lg">{title}</h3>
       <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
       <ul className="mt-4 space-y-2">
@@ -426,13 +559,22 @@ function FeatureCard({ title, desc, items }: { title: string; desc: string; item
           </li>
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 }
 
 function RoleCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="rounded-2xl border border-border bg-card p-8">
+    <motion.div
+      variants={revealVariants}
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.45, ease: easeOut }}
+      className="group relative rounded-2xl border border-border bg-card p-8 overflow-hidden transition-shadow duration-500 hover:shadow-[0_22px_60px_-28px_rgba(82,205,239,0.55)] hover:border-[rgba(82,205,239,0.4)]"
+    >
+      <div
+        className="pointer-events-none absolute -top-20 -right-20 h-48 w-48 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"
+        style={{ background: "radial-gradient(circle, rgba(82,205,239,0.3), transparent 70%)" }}
+      />
       <h3 className="font-semibold text-xl">{title}</h3>
       <ul className="mt-5 space-y-2">
         {items.map((i) => (
@@ -442,9 +584,10 @@ function RoleCard({ title, items }: { title: string; items: string[] }) {
           </li>
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 }
+
 
 function FooterCol({ title, links }: { title: string; links: string[] }) {
   return (
