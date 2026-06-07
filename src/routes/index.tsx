@@ -103,7 +103,7 @@ function Index() {
   const navLinks = [
     { href: "#features", label: "Features" },
     { href: "#how-it-works", label: "How it works" },
-    { href: "#dashboard", label: "Dashboard" },
+
     { href: "#contact", label: "Contact" },
   ];
 
@@ -161,7 +161,7 @@ function Index() {
           <nav className="hidden md:flex items-center gap-8 text-sm">
             <a href="#features" className="hover:text-muted-foreground transition">Features</a>
             <a href="#how-it-works" className="hover:text-muted-foreground transition">How it works</a>
-            <a href="#dashboard" className="hover:text-muted-foreground transition">Dashboard</a>
+
             <a href="#contact" className="hover:text-muted-foreground transition">Contact</a>
           </nav>
           <Link
