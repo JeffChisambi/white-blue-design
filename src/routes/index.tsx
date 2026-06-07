@@ -539,7 +539,16 @@ const benefits = [
 
 function FeatureCard({ title, desc, items }: { title: string; desc: string; items: string[] }) {
   return (
-    <div className="rounded-2xl border border-border bg-card p-6">
+    <motion.div
+      variants={revealVariants}
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.45, ease: easeOut }}
+      className="group relative rounded-2xl border border-border bg-card p-6 overflow-hidden transition-shadow duration-500 hover:shadow-[0_22px_60px_-28px_rgba(82,205,239,0.55)] hover:border-[rgba(82,205,239,0.4)]"
+    >
+      <div
+        className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"
+        style={{ background: "radial-gradient(circle, rgba(82,205,239,0.35), transparent 70%)" }}
+      />
       <h3 className="font-semibold text-lg">{title}</h3>
       <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
       <ul className="mt-4 space-y-2">
@@ -550,13 +559,22 @@ function FeatureCard({ title, desc, items }: { title: string; desc: string; item
           </li>
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 }
 
 function RoleCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="rounded-2xl border border-border bg-card p-8">
+    <motion.div
+      variants={revealVariants}
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.45, ease: easeOut }}
+      className="group relative rounded-2xl border border-border bg-card p-8 overflow-hidden transition-shadow duration-500 hover:shadow-[0_22px_60px_-28px_rgba(82,205,239,0.55)] hover:border-[rgba(82,205,239,0.4)]"
+    >
+      <div
+        className="pointer-events-none absolute -top-20 -right-20 h-48 w-48 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"
+        style={{ background: "radial-gradient(circle, rgba(82,205,239,0.3), transparent 70%)" }}
+      />
       <h3 className="font-semibold text-xl">{title}</h3>
       <ul className="mt-5 space-y-2">
         {items.map((i) => (
@@ -566,9 +584,10 @@ function RoleCard({ title, items }: { title: string; items: string[] }) {
           </li>
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 }
+
 
 function FooterCol({ title, links }: { title: string; links: string[] }) {
   return (
