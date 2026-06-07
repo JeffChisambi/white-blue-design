@@ -94,8 +94,9 @@ function Index() {
     { href: "#contact", label: "Contact" },
   ];
 
-
+  return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
+
       {/* premium ambient gradients */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[900px] overflow-hidden">
         <div
