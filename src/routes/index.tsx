@@ -257,7 +257,7 @@ function Index() {
 
       {/* Features */}
       <section id="features" className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
-        <div className="text-center max-w-2xl mx-auto">
+        <Reveal className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             Everything You Need To Manage Your Hosting Clients
           </h2>
@@ -266,23 +266,24 @@ function Index() {
             centralizes your client operations so you can focus on growing your
             business.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {features.map((f) => (
             <FeatureCard key={f.title} {...f} />
           ))}
-        </div>
+        </RevealGroup>
       </section>
 
       {/* How it works */}
       <section id="how-it-works" className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
-        <div className="text-center max-w-2xl mx-auto">
+        <Reveal className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             Manage Your Entire Client Lifecycle In Four Simple Steps
           </h2>
-        </div>
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-4 gap-4">
+        </Reveal>
+        <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-4 gap-4">
+
           {steps.map((s, i) => (
             <div
               key={s.title}
