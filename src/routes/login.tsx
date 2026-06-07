@@ -42,7 +42,7 @@ function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
 
       {/* Ambient gradients — top area only */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[700px] overflow-hidden">
