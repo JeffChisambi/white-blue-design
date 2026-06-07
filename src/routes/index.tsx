@@ -100,7 +100,7 @@ function Index() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground relative">
 
       {/* premium ambient gradients — hero only */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[900px] overflow-hidden">

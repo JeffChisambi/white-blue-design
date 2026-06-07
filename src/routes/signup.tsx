@@ -49,7 +49,7 @@ function SignUp() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground relative">
 
       {/* Ambient gradients — top area only */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[800px] overflow-hidden">
