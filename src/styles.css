@@ -31,4 +31,18 @@
     font-family: var(--font-display);
     -webkit-font-smoothing: antialiased;
   }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(82, 205, 239, 0.35);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(82, 205, 239, 0.6);
+  }
 }
