@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Logo } from "@/components/Logo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -29,12 +30,7 @@ function Index() {
         <nav className="flex items-center gap-10 text-sm">
           <a href="#services" className="hover:opacity-70 transition">Services</a>
           <a href="#ai-lab" className="hover:opacity-70 transition">AI lab</a>
-          <div
-            className="w-11 h-11 rounded-xl flex items-center justify-center font-bold text-background"
-            style={{ background: `linear-gradient(135deg, ${blue}, #2ba8cf)` }}
-          >
-            N
-          </div>
+          <Logo className="w-11 h-11" />
           <a href="#assessment" className="hover:opacity-70 transition">AI assessment</a>
           <a href="#contact" className="hover:opacity-70 transition">Contact</a>
         </nav>
