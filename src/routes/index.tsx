@@ -336,7 +336,7 @@ function Index() {
 
       {/* Dashboard preview */}
       <section id="dashboard" className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
-        <div className="text-center max-w-2xl mx-auto">
+        <Reveal className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             One Dashboard. Complete Control.
           </h2>
@@ -344,8 +344,8 @@ function Index() {
             Everything you need is available from a centralized and intuitive
             dashboard.
           </p>
-        </div>
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+        </Reveal>
+        <RevealGroup className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3" stagger={0.05}>
           {[
             "Total Clients",
             "Active Hosting Subscriptions",
@@ -354,21 +354,25 @@ function Index() {
             "Expiring Subscriptions",
             "Recent Notifications",
           ].map((m) => (
-            <div
+            <motion.div
               key={m}
-              className="rounded-2xl border border-border bg-card p-5 text-center"
+              variants={revealVariants}
+              whileHover={{ y: -3 }}
+              transition={{ duration: 0.4, ease: easeOut }}
+              className="rounded-2xl border border-border bg-card p-5 text-center transition-shadow duration-500 hover:shadow-[0_18px_50px_-25px_rgba(82,205,239,0.6)]"
             >
               <div className="text-xs text-muted-foreground">{m}</div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </RevealGroup>
       </section>
 
       {/* Roles */}
       <section className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
-        <div className="text-center max-w-2xl mx-auto">
+        <Reveal className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Built For Teams</h2>
-        </div>
+        </Reveal>
+
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-4">
           <RoleCard
             title="Super Admin"
