@@ -158,8 +158,108 @@ function Index() {
           >
             Get Started
           </a>
+          <button
+            type="button"
+            aria-label="Open menu"
+            onClick={() => setMenuOpen(true)}
+            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-card/70 backdrop-blur transition hover:bg-card"
+          >
+            <Menu className="w-5 h-5" />
+          </button>
         </div>
       </header>
+
+      {/* Mobile Sidebar */}
+      <AnimatePresence>
+        {menuOpen && (
+          <>
+            <motion.div
+              key="overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, ease: easeOut }}
+              onClick={() => setMenuOpen(false)}
+              className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm md:hidden"
+            />
+            <motion.aside
+              key="sidebar"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.5, ease: easeOut }}
+              className="fixed top-0 right-0 z-50 h-full w-[82%] max-w-sm md:hidden bg-card border-l border-border shadow-2xl flex flex-col"
+            >
+              {/* ambient gradient inside sidebar */}
+              <div
+                className="pointer-events-none absolute inset-0 opacity-60"
+                style={{
+                  background:
+                    "radial-gradient(circle at 100% 0%, rgba(82,205,239,0.18), transparent 60%)",
+                }}
+              />
+              <div className="relative flex items-center justify-between px-6 py-5 border-b border-border">
+                <img src={ogulaLogo.url} alt="OgulaDesk" className="h-8 w-auto" />
+                <button
+                  type="button"
+                  aria-label="Close menu"
+                  onClick={() => setMenuOpen(false)}
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-border bg-background/70 transition hover:bg-background"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <motion.nav
+                className="relative flex-1 px-6 py-8 flex flex-col gap-1"
+                initial="hidden"
+                animate="show"
+                variants={{
+                  hidden: {},
+                  show: { transition: { staggerChildren: 0.07, delayChildren: 0.15 } },
+                }}
+              >
+                {navLinks.map((link) => (
+                  <motion.a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMenuOpen(false)}
+                    variants={{
+                      hidden: { opacity: 0, x: 24 },
+                      show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: easeOut } },
+                    }}
+                    className="group flex items-center justify-between py-4 text-lg font-medium border-b border-border/60 transition hover:text-foreground"
+                  >
+                    <span>{link.label}</span>
+                    <span
+                      className="w-1.5 h-1.5 rounded-full opacity-0 group-hover:opacity-100 transition"
+                      style={{ backgroundColor: blue, boxShadow: `0 0 10px ${blue}` }}
+                    />
+                  </motion.a>
+                ))}
+
+                <motion.a
+                  href="#cta"
+                  onClick={() => setMenuOpen(false)}
+                  variants={{
+                    hidden: { opacity: 0, y: 16 },
+                    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: easeOut, delay: 0.1 } },
+                  }}
+                  className="mt-8 inline-flex items-center justify-center px-6 py-3.5 rounded-full text-sm font-medium text-white transition hover:opacity-90"
+                  style={{ backgroundColor: blue, boxShadow: `0 10px 30px -10px ${blue}` }}
+                >
+                  Get Started
+                </motion.a>
+              </motion.nav>
+
+              <div className="relative px-6 py-5 border-t border-border text-xs text-muted-foreground">
+                © 2026 OgulaDesk
+              </div>
+            </motion.aside>
+          </>
+        )}
+      </AnimatePresence>
+
 
       {/* Hero */}
       <main className="relative z-10 max-w-6xl mx-auto px-6 pt-20 text-center">
