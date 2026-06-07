@@ -122,9 +122,8 @@ function Index() {
       {/* Nav */}
       <header className="relative z-10 w-full">
         <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-3">
-            <Logo className="w-9 h-9" />
-            <span className="text-lg font-semibold tracking-tight">OgulaDesk</span>
+          <a href="/" className="flex items-center">
+            <img src={ogulaLogo.url} alt="OgulaDesk" className="h-8 w-auto" />
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm">
             <a href="#features" className="hover:text-muted-foreground transition">Features</a>
