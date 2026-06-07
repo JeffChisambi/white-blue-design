@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import ogulaLogo from "@/assets/ogulalogo.svg";
 
@@ -27,9 +27,16 @@ function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [headerHidden, setHeaderHidden] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 20);
+      setHeaderHidden(y > 80 && y > lastScrollY.current);
+      lastScrollY.current = y;
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -87,7 +94,7 @@ function SignUp() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background to-transparent" />
 
       {/* Nav */}
-      <header className={`sticky top-0 z-20 w-full transition-all duration-300 ${scrolled ? "border-b border-border bg-background/80 backdrop-blur-md" : ""}`}>
+      <header className={`sticky top-0 z-20 w-full transition-all duration-300 ${headerHidden ? "-translate-y-full" : "translate-y-0"} ${scrolled ? "border-b border-border bg-background/80 backdrop-blur-md" : ""}`}>
         <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
           <Link to="/" className="flex items-center">
             <img src={ogulaLogo} alt="OgulaDesk" className="h-8 w-auto" />
