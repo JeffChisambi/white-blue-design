@@ -283,35 +283,43 @@ function Index() {
           </h2>
         </Reveal>
         <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-4 gap-4">
-
           {steps.map((s, i) => (
-            <div
+            <motion.div
               key={s.title}
-              className="rounded-2xl border border-border bg-card p-6 relative"
+              variants={revealVariants}
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.4, ease: easeOut }}
+              className="rounded-2xl border border-border bg-card p-6 relative transition-shadow duration-500 hover:shadow-[0_18px_50px_-25px_rgba(82,205,239,0.6)]"
             >
               <div
                 className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold text-white"
-                style={{ backgroundColor: blue }}
+                style={{ backgroundColor: blue, boxShadow: `0 8px 24px -8px ${blue}` }}
               >
                 {i + 1}
               </div>
               <h3 className="mt-5 font-semibold text-lg">{s.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </RevealGroup>
       </section>
 
       {/* Benefits */}
       <section className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
-        <div className="text-center max-w-2xl mx-auto">
+        <Reveal className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             Why Businesses Choose OgulaDesk
           </h2>
-        </div>
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        </Reveal>
+        <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {benefits.map((b) => (
-            <div key={b.title} className="rounded-2xl border border-border bg-card p-6">
+            <motion.div
+              key={b.title}
+              variants={revealVariants}
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.4, ease: easeOut }}
+              className="rounded-2xl border border-border bg-card p-6 transition-shadow duration-500 hover:shadow-[0_18px_50px_-25px_rgba(82,205,239,0.6)]"
+            >
               <div
                 className="w-9 h-9 rounded-lg flex items-center justify-center"
                 style={{ background: "rgba(82,205,239,0.12)", color: blue }}
@@ -320,10 +328,11 @@ function Index() {
               </div>
               <h3 className="mt-5 font-semibold">{b.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </RevealGroup>
       </section>
+
 
       {/* Dashboard preview */}
       <section id="dashboard" className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
