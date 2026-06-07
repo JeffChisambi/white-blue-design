@@ -386,24 +386,26 @@ function Index() {
       </main>
 
       {/* Features */}
-      <section id="features" className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
-        <Reveal className="text-center max-w-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-            Everything You Need To Manage Your Hosting Clients
-          </h2>
-          <p className="mt-5 text-muted-foreground">
-            Stop juggling spreadsheets and manual follow-ups. OgulaDesk
-            centralizes your client operations so you can focus on growing your
-            business.
-          </p>
-        </Reveal>
+      <div className="w-full bg-zinc-950">
+        <section id="features" className="relative z-10 max-w-6xl mx-auto px-6 py-32 text-white">
+          <Reveal className="text-center max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
+              Everything You Need To Manage Your Hosting Clients
+            </h2>
+            <p className="mt-5 text-neutral-400">
+              Stop juggling spreadsheets and manual follow-ups. OgulaDesk
+              centralizes your client operations so you can focus on growing your
+              business.
+            </p>
+          </Reveal>
 
-        <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {features.map((f) => (
-            <FeatureCard key={f.title} {...f} />
-          ))}
-        </RevealGroup>
-      </section>
+          <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {features.map((f) => (
+              <FeatureCard key={f.title} {...f} dark />
+            ))}
+          </RevealGroup>
+        </section>
+      </div>
 
       {/* How it works */}
       <section id="how-it-works" className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
@@ -435,33 +437,35 @@ function Index() {
       </section>
 
       {/* Benefits */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
-        <Reveal className="text-center max-w-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-            Why Businesses Choose OgulaDesk
-          </h2>
-        </Reveal>
-        <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {benefits.map((b) => (
-            <motion.div
-              key={b.title}
-              variants={revealVariants}
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.4, ease: easeOut }}
-              className="rounded-2xl border border-border bg-card p-6 transition-shadow duration-500 hover:shadow-[0_18px_50px_-25px_rgba(82,205,239,0.6)]"
-            >
-              <div
-                className="w-9 h-9 rounded-lg flex items-center justify-center"
-                style={{ background: "rgba(82,205,239,0.12)", color: blue }}
+      <div className="w-full bg-zinc-950">
+        <section className="relative z-10 max-w-6xl mx-auto px-6 py-32 text-white">
+          <Reveal className="text-center max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
+              Why Businesses Choose OgulaDesk
+            </h2>
+          </Reveal>
+          <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {benefits.map((b) => (
+              <motion.div
+                key={b.title}
+                variants={revealVariants}
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.4, ease: easeOut }}
+                className="rounded-2xl border border-white/[0.08] bg-white/[0.04] p-6 transition-shadow duration-500 hover:shadow-[0_18px_50px_-25px_rgba(82,205,239,0.6)] hover:border-[rgba(82,205,239,0.4)]"
               >
-                ✓
-              </div>
-              <h3 className="mt-5 font-semibold">{b.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
-            </motion.div>
-          ))}
-        </RevealGroup>
-      </section>
+                <div
+                  className="w-9 h-9 rounded-lg flex items-center justify-center"
+                  style={{ background: "rgba(82,205,239,0.12)", color: blue }}
+                >
+                  ✓
+                </div>
+                <h3 className="mt-5 font-semibold text-white">{b.title}</h3>
+                <p className="mt-2 text-sm text-neutral-400 leading-relaxed">{b.desc}</p>
+              </motion.div>
+            ))}
+          </RevealGroup>
+        </section>
+      </div>
 
 
       {/* Dashboard preview */}
@@ -498,33 +502,37 @@ function Index() {
       </section>
 
       {/* Roles */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 pt-32">
-        <Reveal className="text-center max-w-2xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Built For Teams</h2>
-        </Reveal>
+      <div className="w-full bg-zinc-950">
+        <section className="relative z-10 max-w-6xl mx-auto px-6 py-32 text-white">
+          <Reveal className="text-center max-w-2xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">Built For Teams</h2>
+          </Reveal>
 
-        <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <RoleCard
-            title="Super Admin"
-            items={[
-              "Manage the entire system",
-              "Create and manage admins",
-              "View all records",
-              "Access all modules",
-            ]}
-          />
-          <RoleCard
-            title="Admin"
-            items={[
-              "Manage clients",
-              "Create subscriptions",
-              "Generate invoices",
-              "Generate receipts",
-              "Monitor notifications",
-            ]}
-          />
-        </RevealGroup>
-      </section>
+          <RevealGroup className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <RoleCard
+              dark
+              title="Super Admin"
+              items={[
+                "Manage the entire system",
+                "Create and manage admins",
+                "View all records",
+                "Access all modules",
+              ]}
+            />
+            <RoleCard
+              dark
+              title="Admin"
+              items={[
+                "Manage clients",
+                "Create subscriptions",
+                "Generate invoices",
+                "Generate receipts",
+                "Monitor notifications",
+              ]}
+            />
+          </RevealGroup>
+        </section>
+      </div>
 
       {/* CTA */}
       <section id="cta" className="relative z-10 max-w-4xl mx-auto px-6 pt-32">
@@ -564,20 +572,21 @@ function Index() {
 
 
       {/* Contact */}
-      <section id="contact" className="relative z-10 py-28 px-6">
+      <div className="w-full bg-zinc-950">
+      <section id="contact" className="relative z-10 py-28 px-6 text-white">
         <div className="max-w-5xl mx-auto">
           <Reveal>
             <div className="text-center mb-14">
               <span className="inline-block text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: blue }}>Get in touch</span>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Let's talk.</h2>
-              <p className="mt-4 text-muted-foreground max-w-md mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">Let's talk.</h2>
+              <p className="mt-4 text-neutral-400 max-w-md mx-auto">
                 Have a question, a feature request, or just want to say hi? Drop us a message and we'll get back to you.
               </p>
             </div>
           </Reveal>
 
           <Reveal>
-            <div className="relative rounded-2xl border border-border bg-card/60 backdrop-blur-sm overflow-hidden p-8 md:p-12">
+            <div className="relative rounded-2xl border border-white/[0.08] bg-white/[0.04] overflow-hidden p-8 md:p-12">
               {/* decorative glow */}
               <div
                 className="pointer-events-none absolute -top-32 -right-32 w-96 h-96 rounded-full blur-3xl opacity-15"
@@ -592,8 +601,8 @@ function Index() {
                 {/* Left — info */}
                 <div className="flex flex-col justify-between gap-8">
                   <div>
-                    <p className="text-lg font-semibold mb-2">OgulaDesk Support</p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-lg font-semibold mb-2 text-white">OgulaDesk Support</p>
+                    <p className="text-sm text-neutral-400 leading-relaxed">
                       We're a small, focused team. Expect a real reply — not a bot — within one business day.
                     </p>
                   </div>
@@ -604,12 +613,12 @@ function Index() {
                       className="flex items-center gap-3 group"
                     >
                       <span
-                        className="flex items-center justify-center w-10 h-10 rounded-xl border border-border group-hover:border-[#52CDEF]/50 transition"
+                        className="flex items-center justify-center w-10 h-10 rounded-xl border border-white/[0.12] group-hover:border-[#52CDEF]/50 transition"
                         style={{ background: `${blue}12` }}
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={blue} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                       </span>
-                      <span className="text-sm text-muted-foreground group-hover:text-foreground transition">hello@oguladesk.com</span>
+                      <span className="text-sm text-neutral-400 group-hover:text-white transition">hello@oguladesk.com</span>
                     </a>
 
                     <a
@@ -619,16 +628,16 @@ function Index() {
                       className="flex items-center gap-3 group"
                     >
                       <span
-                        className="flex items-center justify-center w-10 h-10 rounded-xl border border-border group-hover:border-[#52CDEF]/50 transition"
+                        className="flex items-center justify-center w-10 h-10 rounded-xl border border-white/[0.12] group-hover:border-[#52CDEF]/50 transition"
                         style={{ background: `${blue}12` }}
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill={blue}><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                       </span>
-                      <span className="text-sm text-muted-foreground group-hover:text-foreground transition">@oguladesk</span>
+                      <span className="text-sm text-neutral-400 group-hover:text-white transition">@oguladesk</span>
                     </a>
                   </div>
 
-                  <p className="text-xs text-muted-foreground/60">
+                  <p className="text-xs text-neutral-600">
                     Mon – Fri · 9 AM – 6 PM WAT
                   </p>
                 </div>
@@ -640,36 +649,36 @@ function Index() {
                 >
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <label className="text-xs text-muted-foreground">Name</label>
+                      <label className="text-xs text-neutral-400">Name</label>
                       <input
                         type="text"
                         placeholder="Jane Smith"
-                        className="w-full px-4 py-2.5 rounded-lg bg-background border border-border text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-[#52CDEF]/60 transition"
+                        className="w-full px-4 py-2.5 rounded-lg bg-zinc-900 border border-white/[0.1] text-white text-sm placeholder:text-neutral-600 focus:outline-none focus:border-[#52CDEF]/60 transition"
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <label className="text-xs text-muted-foreground">Email</label>
+                      <label className="text-xs text-neutral-400">Email</label>
                       <input
                         type="email"
                         placeholder="jane@example.com"
-                        className="w-full px-4 py-2.5 rounded-lg bg-background border border-border text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-[#52CDEF]/60 transition"
+                        className="w-full px-4 py-2.5 rounded-lg bg-zinc-900 border border-white/[0.1] text-white text-sm placeholder:text-neutral-600 focus:outline-none focus:border-[#52CDEF]/60 transition"
                       />
                     </div>
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-xs text-muted-foreground">Subject</label>
+                    <label className="text-xs text-neutral-400">Subject</label>
                     <input
                       type="text"
                       placeholder="What's on your mind?"
-                      className="w-full px-4 py-2.5 rounded-lg bg-background border border-border text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-[#52CDEF]/60 transition"
+                      className="w-full px-4 py-2.5 rounded-lg bg-zinc-900 border border-white/[0.1] text-white text-sm placeholder:text-neutral-600 focus:outline-none focus:border-[#52CDEF]/60 transition"
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-xs text-muted-foreground">Message</label>
+                    <label className="text-xs text-neutral-400">Message</label>
                     <textarea
                       rows={4}
                       placeholder="Tell us more..."
-                      className="w-full px-4 py-2.5 rounded-lg bg-background border border-border text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-[#52CDEF]/60 transition resize-none"
+                      className="w-full px-4 py-2.5 rounded-lg bg-zinc-900 border border-white/[0.1] text-white text-sm placeholder:text-neutral-600 focus:outline-none focus:border-[#52CDEF]/60 transition resize-none"
                     />
                   </div>
                   <button
@@ -685,6 +694,7 @@ function Index() {
           </Reveal>
         </div>
       </section>
+      </div>
 
       {/* Footer */}
       <footer className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-12">
@@ -789,25 +799,25 @@ const benefits = [
   { title: "Better Visibility", desc: "Monitor client activities and hosting subscriptions in real time." },
 ];
 
-function FeatureCard({ title, desc, items }: { title: string; desc: string; items: string[] }) {
+function FeatureCard({ title, desc, items, dark }: { title: string; desc: string; items: string[]; dark?: boolean }) {
   return (
     <motion.div
       variants={revealVariants}
       whileHover={{ y: -5 }}
       transition={{ duration: 0.45, ease: easeOut }}
-      className="group relative rounded-2xl border border-border bg-card p-6 overflow-hidden transition-shadow duration-500 hover:shadow-[0_22px_60px_-28px_rgba(82,205,239,0.55)] hover:border-[rgba(82,205,239,0.4)]"
+      className={`group relative rounded-2xl p-6 overflow-hidden transition-shadow duration-500 hover:shadow-[0_22px_60px_-28px_rgba(82,205,239,0.55)] hover:border-[rgba(82,205,239,0.4)] ${dark ? "border border-white/[0.08] bg-white/[0.04]" : "border border-border bg-card"}`}
     >
       <div
         className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"
         style={{ background: "radial-gradient(circle, rgba(82,205,239,0.35), transparent 70%)" }}
       />
-      <h3 className="font-semibold text-lg">{title}</h3>
-      <p className="mt-2 text-sm text-muted-foreground">{desc}</p>
+      <h3 className={`font-semibold text-lg ${dark ? "text-white" : ""}`}>{title}</h3>
+      <p className={`mt-2 text-sm ${dark ? "text-neutral-400" : "text-muted-foreground"}`}>{desc}</p>
       <ul className="mt-4 space-y-2">
         {items.map((i) => (
           <li key={i} className="flex items-start gap-2 text-sm">
             <span style={{ color: blue }} className="mt-0.5">✓</span>
-            <span className="text-muted-foreground">{i}</span>
+            <span className={dark ? "text-neutral-400" : "text-muted-foreground"}>{i}</span>
           </li>
         ))}
       </ul>
@@ -815,24 +825,24 @@ function FeatureCard({ title, desc, items }: { title: string; desc: string; item
   );
 }
 
-function RoleCard({ title, items }: { title: string; items: string[] }) {
+function RoleCard({ title, items, dark }: { title: string; items: string[]; dark?: boolean }) {
   return (
     <motion.div
       variants={revealVariants}
       whileHover={{ y: -5 }}
       transition={{ duration: 0.45, ease: easeOut }}
-      className="group relative rounded-2xl border border-border bg-card p-8 overflow-hidden transition-shadow duration-500 hover:shadow-[0_22px_60px_-28px_rgba(82,205,239,0.55)] hover:border-[rgba(82,205,239,0.4)]"
+      className={`group relative rounded-2xl p-8 overflow-hidden transition-shadow duration-500 hover:shadow-[0_22px_60px_-28px_rgba(82,205,239,0.55)] hover:border-[rgba(82,205,239,0.4)] ${dark ? "border border-white/[0.08] bg-white/[0.04]" : "border border-border bg-card"}`}
     >
       <div
         className="pointer-events-none absolute -top-20 -right-20 h-48 w-48 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl"
         style={{ background: "radial-gradient(circle, rgba(82,205,239,0.3), transparent 70%)" }}
       />
-      <h3 className="font-semibold text-xl">{title}</h3>
+      <h3 className={`font-semibold text-xl ${dark ? "text-white" : ""}`}>{title}</h3>
       <ul className="mt-5 space-y-2">
         {items.map((i) => (
           <li key={i} className="flex items-start gap-2 text-sm">
             <span style={{ color: blue }} className="mt-0.5">✓</span>
-            <span className="text-muted-foreground">{i}</span>
+            <span className={dark ? "text-neutral-400" : "text-muted-foreground"}>{i}</span>
           </li>
         ))}
       </ul>
