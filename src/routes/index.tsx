@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Logo } from "@/components/Logo";
 import ogulaLogo from "@/assets/ogulalogo.svg";
 import { motion, AnimatePresence, type Variants } from "motion/react";
@@ -151,13 +151,13 @@ function Index() {
             <a href="#dashboard" className="hover:text-muted-foreground transition">Dashboard</a>
             <a href="#contact" className="hover:text-muted-foreground transition">Contact</a>
           </nav>
-          <a
-            href="#cta"
+          <Link
+            to="/signup"
             className="hidden md:inline-flex items-center px-5 py-2.5 rounded-full text-sm font-medium text-white transition hover:opacity-90"
             style={{ backgroundColor: blue }}
           >
             Get Started
-          </a>
+          </Link>
           <button
             type="button"
             aria-label="Open menu"
@@ -239,7 +239,7 @@ function Index() {
                 ))}
 
                 <motion.a
-                  href="#cta"
+                  href="/signup"
                   onClick={() => setMenuOpen(false)}
                   variants={{
                     hidden: { opacity: 0, y: 16 },
@@ -287,19 +287,19 @@ function Index() {
           </motion.p>
 
           <motion.div variants={revealVariants} className="mt-8 flex items-center justify-center gap-3 flex-wrap">
-            <a
-              href="#cta"
+            <Link
+              to="/signup"
               className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5"
               style={{ backgroundColor: blue, boxShadow: `0 10px 30px -10px ${blue}` }}
             >
               Get Started
-            </a>
-            <a
-              href="#cta"
+            </Link>
+            <Link
+              to="/login"
               className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium border border-border bg-card/70 hover:bg-card transition-all duration-300 hover:-translate-y-0.5"
             >
               Sign In
-            </a>
+            </Link>
           </motion.div>
 
           <motion.div variants={revealVariants} className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
@@ -531,20 +531,19 @@ function Index() {
               reminders from a single platform designed for efficiency and growth.
             </p>
             <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
-              <a
-                href="#"
+              <Link
+                to="/signup"
                 className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90"
                 style={{ backgroundColor: blue, boxShadow: `0 10px 30px -10px ${blue}` }}
               >
                 Create Account
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/login"
                 className="inline-flex items-center px-6 py-3 rounded-full text-sm font-medium border border-border bg-card hover:bg-card/80 transition-all duration-300 hover:-translate-y-0.5"
               >
-
-              Login
-            </a>
+                Login
+              </Link>
           </div>
           </div>
         </Reveal>
